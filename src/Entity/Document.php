@@ -8,6 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: DocumentRepository::class)]
 class Document
 {
+    public const STATE_DRAFT = 'draft';
+    public const STATE_REVIEWED = 'reviewed';
+    public const STATE_PUBLISHED = 'published';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -16,8 +20,8 @@ class Document
     #[ORM\Column(type: 'string', length: 255)]
     private string $name;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private string $path;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private string|null $path;
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $status;

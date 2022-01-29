@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Document List{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for document in documents %}
+            <li><a href="{{ path('document_view', {id: document.id}) }}">{{ document.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
